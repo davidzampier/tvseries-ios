@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -88,8 +89,40 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Series" id="b3t-b8-Fc6"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ffP-8V-iQQ" id="vdT-ij-Ytx"/>
+                        <outlet property="backgroundLabel" destination="78F-03-C0j" id="5CF-1a-3Fi"/>
+                        <outlet property="backgroundView" destination="Ayx-f1-bHw" id="mjp-NO-zh2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aov-bp-ALs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Ayx-f1-bHw">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="395"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="j3S-AG-Ppl">
+                            <rect key="frame" x="16" y="187.5" width="208" height="20"/>
+                            <subviews>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ffP-8V-iQQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="208" height="20"/>
+                                </activityIndicatorView>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78F-03-C0j">
+                                    <rect key="frame" x="0.0" y="0.0" width="208" height="0.0"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="1zA-NX-dO2"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="1zA-NX-dO2" firstAttribute="trailing" secondItem="j3S-AG-Ppl" secondAttribute="trailing" constant="16" id="gOW-f8-cwZ"/>
+                        <constraint firstItem="j3S-AG-Ppl" firstAttribute="leading" secondItem="1zA-NX-dO2" secondAttribute="leading" constant="16" id="pLT-C3-9wI"/>
+                        <constraint firstItem="j3S-AG-Ppl" firstAttribute="centerY" secondItem="Ayx-f1-bHw" secondAttribute="centerY" id="yp8-tJ-pto"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="-593" y="110"/>
         </scene>
