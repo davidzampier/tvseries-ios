@@ -5,13 +5,14 @@
 //  Created by David Zampier on 02/02/22.
 //
 
-import Foundation
+import UIKit
 
-struct SeriesModel: Decodable {
+final class SeriesModel {
     let id: Int
     let name: String
     let summary: String
     let imageURL: URL
+    var posterImage: UIImage?
     
     init(id: Int, name: String, summary: String, imageURL: URL) {
         self.id = id

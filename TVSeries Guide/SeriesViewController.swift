@@ -27,7 +27,17 @@ class SeriesViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SeriesListViewCell.identifier, for: indexPath) as? SeriesListViewCell else {
             return UITableViewCell()
         }
-        cell.nameLabel.text = self.viewModel.series[indexPath.row].name
+        let series = self.viewModel.series[indexPath.row]
+        cell.nameLabel.text = series.name
+        cell.posterImageView.startLoading()
+        self.viewModel.fetchPosterFor(series: series) { image in
+            if let image = image {
+                cell.posterImageView.setImage(image)
+                cell.posterImageView.stopLoading()
+            } else {
+                cell.posterImageView.stopLoadingWithPlaceholder()
+            }
+        }
         return cell
     }
 }

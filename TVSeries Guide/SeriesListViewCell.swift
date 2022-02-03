@@ -10,7 +10,14 @@ import UIKit
 class SeriesListViewCell: UITableViewCell {
     static let identifier = "SeriesListViewCell"
     
-    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var posterImageView: NetworkImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
+ 
+    override func prepareForReuse() {
+        if self.posterImageView.hasImage {
+            self.posterImageView.stopLoading()
+        } else {
+            self.posterImageView.startLoading()
+        }
+    }
 }

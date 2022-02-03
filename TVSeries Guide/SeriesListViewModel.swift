@@ -5,7 +5,7 @@
 //  Created by David Zampier on 02/02/22.
 //
 
-import Foundation
+import UIKit
 
 final class SeriesListViewModel {
     
@@ -32,6 +32,20 @@ final class SeriesListViewModel {
                     break
                 }
                 self.didUpdateViewModel?()
+            }
+        }
+    }
+    
+    func fetchPosterFor(series: SeriesModel, completion: @escaping (UIImage?) -> Void) {
+        if let posterImage = series.posterImage {
+            completion(posterImage)
+            return
+        }
+        self.seriesAPI.downloadImage(url: series.imageURL) { result in
+            DispatchQueue.main.async {
+                let image = try? result.get()
+                series.posterImage = image
+                completion(image)
             }
         }
     }

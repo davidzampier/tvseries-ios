@@ -5,10 +5,11 @@
 //  Created by David Zampier on 02/02/22.
 //
 
-import Foundation
+import UIKit
 
 protocol SeriesAPIProtocol {
     func fetchSeries(page: Int?, completion: @escaping (Result<[SeriesResponse], NetworkError>) -> Void)
+    func downloadImage(url: URL, completion: @escaping (Result<UIImage, NetworkError>) -> Void)
 }
 
 
@@ -33,5 +34,9 @@ extension SeriesAPI: SeriesAPIProtocol {
             url += "?page=\(page)"
         }
         self.networkManager.get(url: url, completion: completion)
+    }
+    
+    func downloadImage(url: URL, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
+        self.networkManager.downloadImage(url: url, completion: completion)
     }
 }

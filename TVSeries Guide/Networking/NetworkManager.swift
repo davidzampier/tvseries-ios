@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol NetworkManagerProtocol {
+    func downloadImage(url: URL, completion: @escaping (Result<UIImage, NetworkError>) -> Void)
     func get<T: Decodable>(url: String, completion: @escaping (Result<T, NetworkError>) -> Void)
 }
 
@@ -25,12 +27,22 @@ struct NetworkManager {
 
 extension NetworkManager: NetworkManagerProtocol {
     
+    func downloadImage(url: URL, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
+        self.urlSession.dataTask(with: url) { data, urlResponse, error in
+            if let data = data, let image = UIImage(data: data) {
+                completion(.success(image))
+            } else {
+                completion(.failure(.noData))
+            }
+        }.resume()
+    }
+    
     func get<T>(url: String, completion: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable {
         guard let url = URL(string: url) else {
             completion(.failure(.invalidURL))
             return
         }
-        urlSession.dataTask(with: url) { data, urlResponse, error in
+        self.urlSession.dataTask(with: url) { data, urlResponse, error in
             if let error = error {
                 completion(.failure(.genericError(error)))
                 return
