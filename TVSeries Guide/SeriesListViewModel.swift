@@ -55,11 +55,11 @@ final class SeriesListViewModel {
             return
         }
         self.isLoading = true
-        
         if self.searchedSeries == nil {
             self.searchedSeries = []
         }
-        self.delegate?.didUpdateResults()
+        guard text.count > 3 else { return }
+        self.searchSeries(text: text)
     }
     
     
@@ -68,15 +68,11 @@ final class SeriesListViewModel {
     func fetchSeries() {
         self.seriesAPI.fetchSeries(page: nil) { [weak self] (result: Result<[SeriesResponse], NetworkError>) in
             DispatchQueue.main.async {
-                switch result {
-                case .success(let response):
-                    let entities = response.map {
-                        SeriesModel(id: $0.id, name: $0.name, summary: $0.summary, imageURL: $0.image.medium)
-                    }
-                    self?.series.append(contentsOf: entities)
-                case .failure:
-                    break
+                guard let response = try? result.get() else { return }
+                let entities = response.map {
+                    SeriesModel(id: $0.id, name: $0.name, summary: $0.summary, imageURL: $0.image?.medium)
                 }
+                self?.series.append(contentsOf: entities)
                 self?.delegate?.didUpdateResults()
             }
         }
@@ -87,11 +83,32 @@ final class SeriesListViewModel {
             completion(posterImage)
             return
         }
-        self.seriesAPI.downloadImage(url: series.imageURL) { result in
+        guard let url = series.imageURL else {
+            completion(nil)
+            return
+        }
+        self.seriesAPI.downloadImage(url: url) { result in
             DispatchQueue.main.async {
                 let image = try? result.get()
                 series.posterImage = image
                 completion(image)
+            }
+        }
+    }
+    
+    func searchSeries(text: String) {
+        self.seriesAPI.searchSeries(text: text) { [weak self] (result: Result<[SeriesSearchResponse], NetworkError>) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    let entities = response.map {
+                        SeriesModel(id: $0.show.id, name: $0.show.name, summary: $0.show.summary, imageURL: $0.show.image?.medium)
+                    }
+                    self?.searchedSeries = entities
+                case .failure:
+                    self?.searchedSeries = []
+                }
+                self?.delegate?.didUpdateResults()
             }
         }
     }

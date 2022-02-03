@@ -11,6 +11,7 @@ import UIKit
 protocol NetworkManagerProtocol {
     func downloadImage(url: URL, completion: @escaping (Result<UIImage, NetworkError>) -> Void)
     func get<T: Decodable>(url: String, completion: @escaping (Result<T, NetworkError>) -> Void)
+    func get<T: Decodable>(url: URL, completion: @escaping (Result<T, NetworkError>) -> Void)
 }
 
 struct NetworkManager {
@@ -37,11 +38,15 @@ extension NetworkManager: NetworkManagerProtocol {
         }.resume()
     }
     
-    func get<T>(url: String, completion: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable {
+    func get<T: Decodable>(url: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let url = URL(string: url) else {
             completion(.failure(.invalidURL))
             return
         }
+        self.get(url: url, completion: completion)
+    }
+    
+    func get<T>(url: URL, completion: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable {
         self.urlSession.dataTask(with: url) { data, urlResponse, error in
             if let error = error {
                 completion(.failure(.genericError(error)))
@@ -55,6 +60,7 @@ extension NetworkManager: NetworkManagerProtocol {
                 let response = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(response))
             } catch {
+                print(error)
                 completion(.failure(.decodingError(error)))
             }
         }.resume()

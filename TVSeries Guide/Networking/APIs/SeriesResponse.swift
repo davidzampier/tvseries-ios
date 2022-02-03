@@ -10,10 +10,14 @@ import Foundation
 struct SeriesResponse: Decodable {
     let id: Int
     let name: String
-    let summary: String
-    let image: Image
+    let summary: String?
+    let image: Image?
     
     struct Image: Decodable {
         let medium: URL
     }
+}
+
+struct SeriesSearchResponse: Decodable {
+    let show: SeriesResponse
 }
