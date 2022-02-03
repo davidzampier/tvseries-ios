@@ -108,6 +108,7 @@ final class SeriesListViewModel {
                 case .failure:
                     self?.searchedSeries = []
                 }
+                self?.isLoading = false
                 self?.delegate?.didUpdateResults()
             }
         }

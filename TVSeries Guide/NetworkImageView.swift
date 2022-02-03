@@ -38,7 +38,7 @@ final class NetworkImageView: UIView {
         self.setupView()
     }
     
-    func setImage(_ image: UIImage) {
+    func setImage(_ image: UIImage?) {
         self.imageView.image = image
     }
     

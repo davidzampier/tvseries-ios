@@ -14,10 +14,7 @@ class SeriesListViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
  
     override func prepareForReuse() {
-        if self.posterImageView.hasImage {
-            self.posterImageView.stopLoading()
-        } else {
-            self.posterImageView.startLoading()
-        }
+        self.posterImageView.stopLoading()
+        self.posterImageView.setImage(nil)
     }
 }

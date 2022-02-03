@@ -55,6 +55,16 @@ class SeriesViewController: UITableViewController {
         self.activityIndicator.stopAnimating()
     }
     
+    private func showNoResultsLabel() {
+        self.stopLoading()
+        self.backgroundLabel.text = "No series found 😭"
+        self.backgroundLabel.isHidden = false
+    }
+    
+    private func hideNoResultsLabel() {
+        self.backgroundLabel.isHidden = true
+    }
+    
     
     // MARK: - TableView Setup
     
@@ -96,6 +106,13 @@ extension SeriesViewController: SeriesListViewModelDelegate {
     
     func didUpdateResults() {
         self.tableView.reloadData()
+        if !self.viewModel.isLoading {
+            if self.viewModel.numberOfItems() > 0 {
+                self.hideNoResultsLabel()
+            } else {
+                self.showNoResultsLabel()
+            }
+        }
     }
 }
 
