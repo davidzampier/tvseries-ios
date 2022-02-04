@@ -22,7 +22,7 @@ class SeriesDetailViewController: UITableViewController {
     private func setUpHeaderView() {
         self.headerView.titleLabel.text = self.viewModel.series.name
         self.headerView.imageView.image = self.viewModel.series.posterImage
-        self.headerView.summaryLabel.text = self.viewModel.series.summary
+        self.headerView.summaryLabel.setHTMLText(text: self.viewModel.series.summary ?? "")
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
