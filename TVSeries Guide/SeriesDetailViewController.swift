@@ -16,6 +16,7 @@ class SeriesDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpHeaderView()
+        self.viewModel.fetchSeasons()
     }
     
     private func setUpHeaderView() {

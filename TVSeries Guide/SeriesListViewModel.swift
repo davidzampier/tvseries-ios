@@ -86,7 +86,7 @@ final class SeriesListViewModel {
             DispatchQueue.main.async {
                 guard let response = try? result.get() else { return }
                 let entities = response.map {
-                    SeriesModel(id: $0.id, name: $0.name, summary: $0.summary, imageURL: $0.image?.medium)
+                    SeriesModel(id: $0.id, name: $0.name, summary: $0.summary, imageURL: $0.image?.medium, seasons: nil)
                 }
                 self?.didFetchAllItems = entities.isEmpty
                 self?.series.append(contentsOf: entities)
@@ -119,7 +119,7 @@ final class SeriesListViewModel {
                 switch result {
                 case .success(let response):
                     let entities = response.map {
-                        SeriesModel(id: $0.show.id, name: $0.show.name, summary: $0.show.summary, imageURL: $0.show.image?.medium)
+                        SeriesModel(id: $0.show.id, name: $0.show.name, summary: $0.show.summary, imageURL: $0.show.image?.medium, seasons: nil)
                     }
                     self?.searchedSeries = entities
                 case .failure:

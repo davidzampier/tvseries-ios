@@ -11,13 +11,27 @@ struct SeriesResponse: Decodable {
     let id: Int
     let name: String
     let summary: String?
-    let image: Image?
-    
-    struct Image: Decodable {
-        let medium: URL
-    }
+    let image: ImageResponse?
 }
 
 struct SeriesSearchResponse: Decodable {
     let show: SeriesResponse
+}
+
+struct SeriesSeasonResponse: Decodable {
+    let id: Int
+    let number: Int?
+}
+
+struct SeriesEpisodeResponse: Decodable {
+    let id: Int
+    let number: Int?
+    let season: Int
+    let name: String
+    let summary: String?
+    let image: ImageResponse?
+}
+
+struct ImageResponse: Decodable {
+    let medium: URL
 }
