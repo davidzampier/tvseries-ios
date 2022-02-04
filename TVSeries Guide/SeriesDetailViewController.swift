@@ -1,0 +1,35 @@
+//
+//  SeriesDetailViewController.swift
+//  TVSeries Guide
+//
+//  Created by David Zampier on 03/02/22.
+//
+
+import UIKit
+
+class SeriesDetailViewController: UITableViewController {
+    
+    var series: SeriesModel!
+    
+    private var headerView: SeriesDetailHeaderView = .initFromNib()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setUpHeaderView()
+    }
+    
+    
+    func setUpHeaderView() {
+        self.headerView.titleLabel.text = self.series.name
+        self.headerView.imageView.image = self.series.posterImage
+        self.headerView.summaryLabel.text = self.series.summary
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return self.headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        UITableView.automaticDimension
+    }
+}

@@ -23,6 +23,10 @@
 		C559A22027AB3E0C00E5B983 /* SeriesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559A21F27AB3E0C00E5B983 /* SeriesListViewModel.swift */; };
 		C559A22227AB428700E5B983 /* SeriesListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559A22127AB428700E5B983 /* SeriesListViewCell.swift */; };
 		C559A22427AB57F000E5B983 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559A22327AB57F000E5B983 /* NetworkImageView.swift */; };
+		C5B0625A27ACBA3600C37615 /* SeriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0625927ACBA3600C37615 /* SeriesDetailViewController.swift */; };
+		C5B0625E27ACBF9C00C37615 /* SeriesDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5B0625D27ACBF9C00C37615 /* SeriesDetailHeaderView.xib */; };
+		C5B0626027ACC09700C37615 /* SeriesDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0625F27ACC09700C37615 /* SeriesDetailHeaderView.swift */; };
+		C5B0626227ACC41100C37615 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0626127ACC41100C37615 /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		C559A21F27AB3E0C00E5B983 /* SeriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListViewModel.swift; sourceTree = "<group>"; };
 		C559A22127AB428700E5B983 /* SeriesListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListViewCell.swift; sourceTree = "<group>"; };
 		C559A22327AB57F000E5B983 /* NetworkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
+		C5B0625927ACBA3600C37615 /* SeriesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailViewController.swift; sourceTree = "<group>"; };
+		C5B0625D27ACBF9C00C37615 /* SeriesDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesDetailHeaderView.xib; sourceTree = "<group>"; };
+		C5B0625F27ACC09700C37615 /* SeriesDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailHeaderView.swift; sourceTree = "<group>"; };
+		C5B0626127ACC41100C37615 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,9 +126,13 @@
 				C559A1E327AB2D4000E5B983 /* AppDelegate.swift */,
 				C559A1E527AB2D4000E5B983 /* SceneDelegate.swift */,
 				C559A1E727AB2D4000E5B983 /* SeriesViewController.swift */,
+				C5B0625927ACBA3600C37615 /* SeriesDetailViewController.swift */,
 				C559A21F27AB3E0C00E5B983 /* SeriesListViewModel.swift */,
 				C559A22127AB428700E5B983 /* SeriesListViewCell.swift */,
+				C5B0625F27ACC09700C37615 /* SeriesDetailHeaderView.swift */,
 				C559A22327AB57F000E5B983 /* NetworkImageView.swift */,
+				C5B0626127ACC41100C37615 /* Helpers.swift */,
+				C5B0625D27ACBF9C00C37615 /* SeriesDetailHeaderView.xib */,
 				C559A1E927AB2D4000E5B983 /* Main.storyboard */,
 				C559A1EC27AB2D4200E5B983 /* Assets.xcassets */,
 				C559A1EE27AB2D4200E5B983 /* LaunchScreen.storyboard */,
@@ -277,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C559A1F027AB2D4200E5B983 /* LaunchScreen.storyboard in Resources */,
+				C5B0625E27ACBF9C00C37615 /* SeriesDetailHeaderView.xib in Resources */,
 				C559A1ED27AB2D4200E5B983 /* Assets.xcassets in Resources */,
 				C559A1EB27AB2D4000E5B983 /* Main.storyboard in Resources */,
 			);
@@ -308,11 +321,14 @@
 				C559A1E827AB2D4000E5B983 /* SeriesViewController.swift in Sources */,
 				C559A1E427AB2D4000E5B983 /* AppDelegate.swift in Sources */,
 				C559A21D27AB3B8400E5B983 /* SeriesResponse.swift in Sources */,
+				C5B0626027ACC09700C37615 /* SeriesDetailHeaderView.swift in Sources */,
 				C559A1E627AB2D4000E5B983 /* SceneDelegate.swift in Sources */,
 				C559A21A27AB3A4000E5B983 /* SeriesModel.swift in Sources */,
 				C559A21727AB385B00E5B983 /* SeriesAPI.swift in Sources */,
 				C559A22027AB3E0C00E5B983 /* SeriesListViewModel.swift in Sources */,
+				C5B0626227ACC41100C37615 /* Helpers.swift in Sources */,
 				C559A22227AB428700E5B983 /* SeriesListViewCell.swift in Sources */,
+				C5B0625A27ACBA3600C37615 /* SeriesDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

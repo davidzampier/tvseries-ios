@@ -66,6 +66,12 @@ class SeriesViewController: UITableViewController {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SeriesDetailViewController, let selected = self.tableView.indexPathForSelectedRow {
+            destination.series = self.viewModel.itemFor(indexPath: selected)
+        }
+    }
+    
     // MARK: - TableView Setup
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
