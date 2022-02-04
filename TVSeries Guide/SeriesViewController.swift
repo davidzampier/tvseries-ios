@@ -68,7 +68,8 @@ class SeriesViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? SeriesDetailViewController, let selected = self.tableView.indexPathForSelectedRow {
-            destination.series = self.viewModel.itemFor(indexPath: selected)
+            let series = self.viewModel.itemFor(indexPath: selected)
+            destination.viewModel = SeriesDetailViewModel(series: series)
         }
     }
     

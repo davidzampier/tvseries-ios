@@ -27,6 +27,7 @@
 		C5B0625E27ACBF9C00C37615 /* SeriesDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5B0625D27ACBF9C00C37615 /* SeriesDetailHeaderView.xib */; };
 		C5B0626027ACC09700C37615 /* SeriesDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0625F27ACC09700C37615 /* SeriesDetailHeaderView.swift */; };
 		C5B0626227ACC41100C37615 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0626127ACC41100C37615 /* Helpers.swift */; };
+		C5B0626427ACC65400C37615 /* SeriesDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0626327ACC65400C37615 /* SeriesDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		C5B0625D27ACBF9C00C37615 /* SeriesDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesDetailHeaderView.xib; sourceTree = "<group>"; };
 		C5B0625F27ACC09700C37615 /* SeriesDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailHeaderView.swift; sourceTree = "<group>"; };
 		C5B0626127ACC41100C37615 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		C5B0626327ACC65400C37615 /* SeriesDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				C559A1E527AB2D4000E5B983 /* SceneDelegate.swift */,
 				C559A1E727AB2D4000E5B983 /* SeriesViewController.swift */,
 				C5B0625927ACBA3600C37615 /* SeriesDetailViewController.swift */,
+				C5B0626327ACC65400C37615 /* SeriesDetailViewModel.swift */,
 				C559A21F27AB3E0C00E5B983 /* SeriesListViewModel.swift */,
 				C559A22127AB428700E5B983 /* SeriesListViewCell.swift */,
 				C5B0625F27ACC09700C37615 /* SeriesDetailHeaderView.swift */,
@@ -328,6 +331,7 @@
 				C559A22027AB3E0C00E5B983 /* SeriesListViewModel.swift in Sources */,
 				C5B0626227ACC41100C37615 /* Helpers.swift in Sources */,
 				C559A22227AB428700E5B983 /* SeriesListViewCell.swift in Sources */,
+				C5B0626427ACC65400C37615 /* SeriesDetailViewModel.swift in Sources */,
 				C5B0625A27ACBA3600C37615 /* SeriesDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

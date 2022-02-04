@@ -9,7 +9,7 @@ import UIKit
 
 class SeriesDetailViewController: UITableViewController {
     
-    var series: SeriesModel!
+    var viewModel: SeriesDetailViewModel!
     
     private var headerView: SeriesDetailHeaderView = .initFromNib()
     
@@ -18,11 +18,10 @@ class SeriesDetailViewController: UITableViewController {
         self.setUpHeaderView()
     }
     
-    
-    func setUpHeaderView() {
-        self.headerView.titleLabel.text = self.series.name
-        self.headerView.imageView.image = self.series.posterImage
-        self.headerView.summaryLabel.text = self.series.summary
+    private func setUpHeaderView() {
+        self.headerView.titleLabel.text = self.viewModel.series.name
+        self.headerView.imageView.image = self.viewModel.series.posterImage
+        self.headerView.summaryLabel.text = self.viewModel.series.summary
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -33,3 +32,5 @@ class SeriesDetailViewController: UITableViewController {
         UITableView.automaticDimension
     }
 }
+
+
