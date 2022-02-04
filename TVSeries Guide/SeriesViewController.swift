@@ -89,6 +89,12 @@ class SeriesViewController: UITableViewController {
         }
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.viewModel.numberOfItems() - 1 { // Last Item
+            self.viewModel.didReachEndOfItems()
+        }
+    }
 }
 
 

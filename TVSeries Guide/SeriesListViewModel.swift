@@ -26,6 +26,12 @@ final class SeriesListViewModel {
         }
     }
     
+    var isSearching: Bool {
+        self.searchedSeries != nil
+    }
+    
+    private var didFetchAllItems: Bool = false
+    
     weak var delegate: SeriesListViewModelDelegate?
     
     init(seriesAPI: SeriesAPIProtocol = SeriesAPI()) {
@@ -41,6 +47,12 @@ final class SeriesListViewModel {
     
     func itemFor(indexPath: IndexPath) -> SeriesModel {
         self.searchedSeries?[indexPath.row] ?? self.series[indexPath.row]
+    }
+    
+    func didReachEndOfItems() {
+        if !self.isSearching, !self.didFetchAllItems {
+            self.fetchSeries()
+        }
     }
     
     
@@ -66,12 +78,18 @@ final class SeriesListViewModel {
     // MARK: - Fetch Data
     
     func fetchSeries() {
-        self.seriesAPI.fetchSeries(page: nil) { [weak self] (result: Result<[SeriesResponse], NetworkError>) in
+        var page: Int = 0
+        if let lastIndex = self.series.last?.id {
+            page = (lastIndex/250) + 1
+        }
+        print("Fetching page \(page)")
+        self.seriesAPI.fetchSeries(page: page) { [weak self] (result: Result<[SeriesResponse], NetworkError>) in
             DispatchQueue.main.async {
                 guard let response = try? result.get() else { return }
                 let entities = response.map {
                     SeriesModel(id: $0.id, name: $0.name, summary: $0.summary, imageURL: $0.image?.medium)
                 }
+                self?.didFetchAllItems = entities.isEmpty
                 self?.series.append(contentsOf: entities)
                 self?.delegate?.didUpdateResults()
             }

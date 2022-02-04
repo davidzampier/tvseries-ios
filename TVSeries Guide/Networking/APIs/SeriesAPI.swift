@@ -33,7 +33,7 @@ extension SeriesAPI: SeriesAPIProtocol {
         var url = URLComponents(url: self.baseURL, resolvingAgainstBaseURL: false)
         url?.path = "/shows"
         if let page = page {
-            url?.queryItems?.append(URLQueryItem(name: "page", value: "\(page)"))
+            url?.queryItems = [URLQueryItem(name: "page", value: "\(page)")]
         }
         guard let url = url?.url else {
             completion(.failure(.invalidURL))
