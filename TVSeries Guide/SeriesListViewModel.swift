@@ -82,7 +82,6 @@ final class SeriesListViewModel {
         if let lastIndex = self.series.last?.id {
             page = (lastIndex/250) + 1
         }
-        print("Fetching page \(page)")
         self.seriesAPI.fetchSeries(page: page) { [weak self] (result: Result<[SeriesResponse], NetworkError>) in
             DispatchQueue.main.async {
                 guard let response = try? result.get() else { return }
