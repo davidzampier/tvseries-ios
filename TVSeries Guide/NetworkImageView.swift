@@ -28,6 +28,11 @@ final class NetworkImageView: UIView {
         return indicator
     }()
     
+    var imageViewContentMode: UIView.ContentMode {
+        get { self.imageView.contentMode }
+        set { self.imageView.contentMode = newValue }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupView()

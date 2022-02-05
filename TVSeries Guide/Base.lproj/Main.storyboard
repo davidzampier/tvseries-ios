@@ -257,7 +257,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Yj-tu-Xbi"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Yj-tu-Xbi" firstAttribute="trailing" secondItem="K1F-PA-7Dl" secondAttribute="trailing" id="FKS-Pm-FI8"/>
                             <constraint firstItem="K1F-PA-7Dl" firstAttribute="leading" secondItem="6Yj-tu-Xbi" secondAttribute="leading" id="Nfu-Ne-90H"/>

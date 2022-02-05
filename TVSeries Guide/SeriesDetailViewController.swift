@@ -28,6 +28,23 @@ class SeriesDetailViewController: UITableViewController {
         self.headerView.genresLabel.text = self.viewModel.series.genres?.joined(separator: "\n")
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? EpisodeDetailViewController,
+            let selected = self.tableView.indexPathForSelectedRow,
+            let episode = self.viewModel.episodeFor(indexPath: selected) else {
+            return
+        }
+        destination.viewModel = EpisodeDetailViewModel(episode: episode)
+        if let sheet = destination.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section > 0 else {
             return self.headerView

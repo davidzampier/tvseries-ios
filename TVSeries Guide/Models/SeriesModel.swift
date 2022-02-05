@@ -45,6 +45,7 @@ final class EpisodeModel {
     let name: String
     let summary: String?
     let imageURL: URL?
+    var image: UIImage?
     
     init(response: SeriesEpisodeResponse) {
         self.id = response.id
