@@ -86,6 +86,7 @@ class SeriesViewController: UITableViewController {
         let series = self.viewModel.itemFor(indexPath: indexPath)
         cell.nameLabel.text = series.name
         cell.posterImageView.startLoading()
+        cell.genresLabel.text = series.genres?.joined(separator: " | ")
         self.viewModel.fetchPosterFor(series: series) { image in
             if let image = image {
                 cell.posterImageView.setImage(image)

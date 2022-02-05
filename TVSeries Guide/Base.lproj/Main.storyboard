@@ -54,8 +54,14 @@
                                                     <rect key="frame" x="98" y="0.0" width="296" height="110"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiO-C7-x4F">
-                                                            <rect key="frame" x="0.0" y="16" width="296" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <rect key="frame" x="0.0" y="6" width="296" height="23"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drama | Horror | Romance" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bx-nJ-ylC">
+                                                            <rect key="frame" x="0.0" y="92" width="296" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -64,7 +70,10 @@
                                                     <constraints>
                                                         <constraint firstItem="eiO-C7-x4F" firstAttribute="leading" secondItem="U5H-Hr-xiq" secondAttribute="leading" id="36c-9v-Lk5"/>
                                                         <constraint firstAttribute="trailing" secondItem="eiO-C7-x4F" secondAttribute="trailing" id="VDc-aN-aKp"/>
-                                                        <constraint firstItem="eiO-C7-x4F" firstAttribute="top" secondItem="U5H-Hr-xiq" secondAttribute="top" constant="16" id="x3r-JN-URQ"/>
+                                                        <constraint firstItem="6Bx-nJ-ylC" firstAttribute="leading" secondItem="U5H-Hr-xiq" secondAttribute="leading" id="Xkq-pr-v3W"/>
+                                                        <constraint firstAttribute="trailing" secondItem="6Bx-nJ-ylC" secondAttribute="trailing" id="pg7-0g-q3c"/>
+                                                        <constraint firstAttribute="bottom" secondItem="6Bx-nJ-ylC" secondAttribute="bottom" id="rZJ-Jg-VVz"/>
+                                                        <constraint firstItem="eiO-C7-x4F" firstAttribute="top" secondItem="U5H-Hr-xiq" secondAttribute="top" constant="6" id="x3r-JN-URQ"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -78,6 +87,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="genresLabel" destination="6Bx-nJ-ylC" id="eyP-dg-4AZ"/>
                                     <outlet property="nameLabel" destination="eiO-C7-x4F" id="7L0-IZ-O5z"/>
                                     <outlet property="posterImageView" destination="efO-IH-2YF" id="5uO-aY-dgd"/>
                                     <segue destination="sig-2t-YbS" kind="show" id="ijL-OI-Bpm"/>

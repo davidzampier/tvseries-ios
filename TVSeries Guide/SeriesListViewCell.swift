@@ -12,7 +12,8 @@ class SeriesListViewCell: UITableViewCell {
     
     @IBOutlet weak var posterImageView: NetworkImageView!
     @IBOutlet weak var nameLabel: UILabel!
- 
+    @IBOutlet weak var genresLabel: UILabel!
+    
     override func prepareForReuse() {
         self.posterImageView.stopLoading()
         self.posterImageView.setImage(nil)
