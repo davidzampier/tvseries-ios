@@ -196,7 +196,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="K1F-PA-7Dl">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="331"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3Y-hz-Jfe" userLabel="NetworkImageView" customClass="NetworkImageView" customModule="TVSeries_Guide" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
@@ -206,18 +206,18 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYt-vG-kap">
-                                        <rect key="frame" x="0.0" y="233" width="414" height="575"/>
+                                        <rect key="frame" x="0.0" y="233" width="414" height="98"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P1Q-8k-QAP">
                                                 <rect key="frame" x="16" y="16" width="382" height="55"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season 1  |  Episode 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QE3-de-D2z">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Season 1  |  Episode 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QE3-de-D2z">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="19.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Episode Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4z9-Kp-U7P">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Test Episode Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4z9-Kp-U7P">
                                                         <rect key="frame" x="0.0" y="29.5" width="382" height="25.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                         <nil key="textColor"/>
@@ -226,44 +226,73 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWs-nS-3aH">
-                                                <rect key="frame" x="145" y="87" width="124" height="3"/>
+                                                <rect key="frame" x="145" y="79" width="124" height="3"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="3" id="aFk-Xa-2N5"/>
                                                 </constraints>
                                             </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="P1Q-8k-QAP" firstAttribute="top" secondItem="pYt-vG-kap" secondAttribute="top" constant="16" id="A5e-SU-t4M"/>
+                                            <constraint firstItem="hWs-nS-3aH" firstAttribute="top" secondItem="P1Q-8k-QAP" secondAttribute="bottom" constant="8" id="HPO-qM-Lba"/>
+                                            <constraint firstItem="hWs-nS-3aH" firstAttribute="width" secondItem="pYt-vG-kap" secondAttribute="width" multiplier="0.3" id="cMO-a9-GhA"/>
+                                            <constraint firstItem="hWs-nS-3aH" firstAttribute="centerX" secondItem="pYt-vG-kap" secondAttribute="centerX" id="h63-EE-JQC"/>
+                                            <constraint firstItem="P1Q-8k-QAP" firstAttribute="leading" secondItem="pYt-vG-kap" secondAttribute="leading" constant="16" id="n6v-BV-SeU"/>
+                                            <constraint firstAttribute="bottom" secondItem="hWs-nS-3aH" secondAttribute="bottom" constant="16" id="pYU-Jf-1Jm"/>
+                                            <constraint firstAttribute="trailing" secondItem="P1Q-8k-QAP" secondAttribute="trailing" constant="16" id="rud-yq-M9Y"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSX-2A-zxX">
+                                <rect key="frame" x="0.0" y="331" width="414" height="511"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3U-gW-WW7" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
+                                        <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfd-sb-sMn">
-                                                <rect key="frame" x="10" y="106" width="394" height="101.5"/>
+                                                <rect key="frame" x="10" y="8" width="394" height="101.5"/>
                                                 <string key="text">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="P1Q-8k-QAP" firstAttribute="top" secondItem="pYt-vG-kap" secondAttribute="top" constant="16" id="A5e-SU-t4M"/>
-                                            <constraint firstItem="Tfd-sb-sMn" firstAttribute="leading" secondItem="pYt-vG-kap" secondAttribute="leading" constant="10" id="Gzh-fR-ZCP"/>
-                                            <constraint firstItem="hWs-nS-3aH" firstAttribute="top" secondItem="P1Q-8k-QAP" secondAttribute="bottom" constant="16" id="HPO-qM-Lba"/>
-                                            <constraint firstAttribute="trailing" secondItem="Tfd-sb-sMn" secondAttribute="trailing" constant="10" id="VUF-83-ALT"/>
-                                            <constraint firstItem="hWs-nS-3aH" firstAttribute="width" secondItem="pYt-vG-kap" secondAttribute="width" multiplier="0.3" id="cMO-a9-GhA"/>
-                                            <constraint firstItem="Tfd-sb-sMn" firstAttribute="top" secondItem="hWs-nS-3aH" secondAttribute="bottom" constant="16" id="grV-9D-i3Q"/>
-                                            <constraint firstItem="hWs-nS-3aH" firstAttribute="centerX" secondItem="pYt-vG-kap" secondAttribute="centerX" id="h63-EE-JQC"/>
-                                            <constraint firstItem="P1Q-8k-QAP" firstAttribute="leading" secondItem="pYt-vG-kap" secondAttribute="leading" constant="16" id="n6v-BV-SeU"/>
-                                            <constraint firstAttribute="trailing" secondItem="P1Q-8k-QAP" secondAttribute="trailing" constant="16" id="rud-yq-M9Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tfd-sb-sMn" secondAttribute="trailing" constant="10" id="OzV-Hn-0fo"/>
+                                            <constraint firstItem="Tfd-sb-sMn" firstAttribute="leading" secondItem="V3U-gW-WW7" secondAttribute="leading" constant="10" id="VXS-Jy-k29"/>
+                                            <constraint firstAttribute="bottom" secondItem="Tfd-sb-sMn" secondAttribute="bottom" constant="10" id="gvi-Bg-FMD"/>
+                                            <constraint firstItem="Tfd-sb-sMn" firstAttribute="top" secondItem="V3U-gW-WW7" secondAttribute="top" constant="8" id="pRA-Fy-nKc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="V3U-gW-WW7" firstAttribute="height" secondItem="rSX-2A-zxX" secondAttribute="height" priority="250" id="3hp-pz-Qzp"/>
+                                    <constraint firstAttribute="trailing" secondItem="V3U-gW-WW7" secondAttribute="trailing" id="VcP-Ul-CX4"/>
+                                    <constraint firstItem="V3U-gW-WW7" firstAttribute="width" secondItem="rSX-2A-zxX" secondAttribute="width" id="d2H-ag-LdB"/>
+                                    <constraint firstAttribute="bottom" secondItem="V3U-gW-WW7" secondAttribute="bottom" id="vYN-fa-wLg"/>
+                                    <constraint firstItem="V3U-gW-WW7" firstAttribute="leading" secondItem="rSX-2A-zxX" secondAttribute="leading" id="xCg-p4-7PO"/>
+                                    <constraint firstItem="V3U-gW-WW7" firstAttribute="top" secondItem="rSX-2A-zxX" secondAttribute="top" id="xe5-Kw-uXw"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="L9C-TN-ONM"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="uqo-Mb-Fpa"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Yj-tu-Xbi"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="rSX-2A-zxX" secondAttribute="bottom" id="1u0-rL-dDx"/>
+                            <constraint firstItem="6Yj-tu-Xbi" firstAttribute="trailing" secondItem="rSX-2A-zxX" secondAttribute="trailing" id="7fn-2G-1z2"/>
+                            <constraint firstItem="rSX-2A-zxX" firstAttribute="leading" secondItem="6Yj-tu-Xbi" secondAttribute="leading" id="Cew-Ra-Ysu"/>
                             <constraint firstItem="6Yj-tu-Xbi" firstAttribute="trailing" secondItem="K1F-PA-7Dl" secondAttribute="trailing" id="FKS-Pm-FI8"/>
                             <constraint firstItem="K1F-PA-7Dl" firstAttribute="leading" secondItem="6Yj-tu-Xbi" secondAttribute="leading" id="Nfu-Ne-90H"/>
                             <constraint firstItem="K1F-PA-7Dl" firstAttribute="top" secondItem="6Yj-tu-Xbi" secondAttribute="top" id="e1Z-Nb-ErX"/>
                             <constraint firstItem="C3Y-hz-Jfe" firstAttribute="width" secondItem="SLQ-cj-9MI" secondAttribute="width" id="n7t-6G-zrf"/>
-                            <constraint firstItem="6Yj-tu-Xbi" firstAttribute="bottom" secondItem="K1F-PA-7Dl" secondAttribute="bottom" id="yJZ-3c-NzX"/>
+                            <constraint firstItem="rSX-2A-zxX" firstAttribute="top" secondItem="K1F-PA-7Dl" secondAttribute="bottom" id="wRJ-En-Jbk"/>
                         </constraints>
                     </view>
                     <connections>
@@ -275,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ade-mq-Hux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1081" y="110"/>
+            <point key="canvasLocation" x="1079.7101449275362" y="109.82142857142857"/>
         </scene>
     </scenes>
     <resources>
