@@ -11,14 +11,16 @@ final class SeriesModel {
     let id: Int
     let name: String
     let summary: String?
+    let genres: [String]?
     let imageURL: URL?
     var posterImage: UIImage?
     var seasons: [SeasonModel]?
     
-    init(id: Int, name: String, summary: String?, imageURL: URL?, seasons: [SeasonModel]?) {
+    init(id: Int, name: String, summary: String?, genres: [String]?, imageURL: URL?, seasons: [SeasonModel]?) {
         self.id = id
         self.name = name
         self.summary = summary
+        self.genres = genres
         self.imageURL = imageURL
         self.seasons = seasons
     }

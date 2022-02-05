@@ -25,6 +25,7 @@ class SeriesDetailViewController: UITableViewController {
         self.headerView.titleLabel.text = self.viewModel.series.name
         self.headerView.imageView.image = self.viewModel.series.posterImage
         self.headerView.summaryLabel.setHTMLText(text: self.viewModel.series.summary ?? "")
+        self.headerView.genresLabel.text = self.viewModel.series.genres?.joined(separator: "\n")
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

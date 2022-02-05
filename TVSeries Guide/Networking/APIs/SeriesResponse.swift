@@ -11,6 +11,7 @@ struct SeriesResponse: Decodable {
     let id: Int
     let name: String
     let summary: String?
+    let genres: [String]?
     let image: ImageResponse?
 }
 

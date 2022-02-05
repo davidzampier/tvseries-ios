@@ -31,7 +31,7 @@ final class SeriesEpisodeSeasonHeaderViewCell: UITableViewHeaderFooterView {
     
     private func setupView() {
         self.contentView.addSubview(self.titleLabel)
-        self.contentView.backgroundColor = .secondarySystemBackground
+        self.contentView.backgroundColor = .opaqueSeparator
         NSLayoutConstraint.activate([
             self.titleLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
             self.titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
