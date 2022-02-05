@@ -60,7 +60,6 @@ extension NetworkManager: NetworkManagerProtocol {
                 let response = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(response))
             } catch {
-                print(error)
                 completion(.failure(.decodingError(error)))
             }
         }.resume()
@@ -70,7 +69,23 @@ extension NetworkManager: NetworkManagerProtocol {
 
 // MARK: - NetworkError
 
-enum NetworkError: Error {
+enum NetworkError: Error, Equatable {
     case genericError(Error), decodingError(Error), invalidURL, noData
+    
+    static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
+        switch (lhs, rhs) {
+        case (.genericError(let lError), .genericError(let rError)):
+            return lError.localizedDescription == rError.localizedDescription
+        case (.decodingError(let lError), .decodingError(let rError)):
+            return lError.localizedDescription == rError.localizedDescription
+        case (.invalidURL, .invalidURL):
+            return true
+        case (.noData, .noData):
+            return true
+        default:
+            return false
+        }
+        
+    }
 }
 
