@@ -7,16 +7,40 @@
 
 import Foundation
 
+protocol SeriesDetailViewModelProtocol: AnyObject {
+    func didUpdateSeries()
+}
+
 final class SeriesDetailViewModel {
     
     private(set) var series: SeriesModel
     private let seriesAPI: SeriesAPIProtocol
+    
+    weak var delegate: SeriesDetailViewModelProtocol?
     
     init(series: SeriesModel, seriesAPI: SeriesAPIProtocol = SeriesAPI()) {
         self.series = series
         self.seriesAPI = seriesAPI
     }
     
+    func numberOfSections() -> Int {
+        (self.series.seasons?.count ?? 0) + 1
+    }
+    
+    func numberOfRowsInSection(_ section: Int) -> Int {
+        if section == 0 {
+            return 0
+        }
+        return self.series.seasons?[section - 1].episodes.count ?? 0
+    }
+    
+    func seasonFor(section: Int) -> SeasonModel? {
+        self.series.seasons?[section - 1]
+    }
+    
+    func episodeFor(indexPath: IndexPath) -> EpisodeModel? {
+        self.series.seasons?[indexPath.section - 1].episodes[indexPath.row]
+    }
     
     func fetchSeasons() {
         guard series.seasons == nil else { return }
@@ -39,6 +63,7 @@ final class SeriesDetailViewModel {
         }
         dispatchGroup.notify(queue: .main) {
             self.series.seasons = seasons
+            self.delegate?.didUpdateSeries()
         }
     }
 }
