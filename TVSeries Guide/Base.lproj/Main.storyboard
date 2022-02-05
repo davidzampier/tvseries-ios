@@ -172,6 +172,7 @@
                                 <connections>
                                     <outlet property="summaryLabel" destination="iX0-C1-m1q" id="7hF-Lx-Ma0"/>
                                     <outlet property="titleLabel" destination="gHq-it-QPE" id="Ole-vx-pHj"/>
+                                    <segue destination="u0O-H0-vw5" kind="presentation" id="nty-S3-yZG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -184,10 +185,103 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VDM-9x-hDI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="279.71014492753625" y="109.82142857142857"/>
+            <point key="canvasLocation" x="216" y="110"/>
+        </scene>
+        <!--Episode Detail View Controller-->
+        <scene sceneID="yBO-YF-yG8">
+            <objects>
+                <viewController id="u0O-H0-vw5" customClass="EpisodeDetailViewController" customModule="TVSeries_Guide" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SLQ-cj-9MI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="K1F-PA-7Dl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3Y-hz-Jfe" userLabel="NetworkImageView" customClass="NetworkImageView" customModule="TVSeries_Guide" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="C3Y-hz-Jfe" secondAttribute="height" multiplier="16:9" id="Uok-a5-0qb"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYt-vG-kap">
+                                        <rect key="frame" x="0.0" y="233" width="414" height="575"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="P1Q-8k-QAP">
+                                                <rect key="frame" x="16" y="16" width="382" height="55"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season 1  |  Episode 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QE3-de-D2z">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="19.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Episode Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4z9-Kp-U7P">
+                                                        <rect key="frame" x="0.0" y="29.5" width="382" height="25.5"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWs-nS-3aH">
+                                                <rect key="frame" x="145" y="87" width="124" height="3"/>
+                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="3" id="aFk-Xa-2N5"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfd-sb-sMn">
+                                                <rect key="frame" x="10" y="106" width="394" height="101.5"/>
+                                                <string key="text">When the residents of Chester's Mill find themselves trapped under a massive transparent dome with no way out, they struggle to survive as resources rapidly dwindle and panic quickly escalates.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="P1Q-8k-QAP" firstAttribute="top" secondItem="pYt-vG-kap" secondAttribute="top" constant="16" id="A5e-SU-t4M"/>
+                                            <constraint firstItem="Tfd-sb-sMn" firstAttribute="leading" secondItem="pYt-vG-kap" secondAttribute="leading" constant="10" id="Gzh-fR-ZCP"/>
+                                            <constraint firstItem="hWs-nS-3aH" firstAttribute="top" secondItem="P1Q-8k-QAP" secondAttribute="bottom" constant="16" id="HPO-qM-Lba"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tfd-sb-sMn" secondAttribute="trailing" constant="10" id="VUF-83-ALT"/>
+                                            <constraint firstItem="hWs-nS-3aH" firstAttribute="width" secondItem="pYt-vG-kap" secondAttribute="width" multiplier="0.3" id="cMO-a9-GhA"/>
+                                            <constraint firstItem="Tfd-sb-sMn" firstAttribute="top" secondItem="hWs-nS-3aH" secondAttribute="bottom" constant="16" id="grV-9D-i3Q"/>
+                                            <constraint firstItem="hWs-nS-3aH" firstAttribute="centerX" secondItem="pYt-vG-kap" secondAttribute="centerX" id="h63-EE-JQC"/>
+                                            <constraint firstItem="P1Q-8k-QAP" firstAttribute="leading" secondItem="pYt-vG-kap" secondAttribute="leading" constant="16" id="n6v-BV-SeU"/>
+                                            <constraint firstAttribute="trailing" secondItem="P1Q-8k-QAP" secondAttribute="trailing" constant="16" id="rud-yq-M9Y"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Yj-tu-Xbi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Yj-tu-Xbi" firstAttribute="trailing" secondItem="K1F-PA-7Dl" secondAttribute="trailing" id="FKS-Pm-FI8"/>
+                            <constraint firstItem="K1F-PA-7Dl" firstAttribute="leading" secondItem="6Yj-tu-Xbi" secondAttribute="leading" id="Nfu-Ne-90H"/>
+                            <constraint firstItem="K1F-PA-7Dl" firstAttribute="top" secondItem="6Yj-tu-Xbi" secondAttribute="top" id="e1Z-Nb-ErX"/>
+                            <constraint firstItem="C3Y-hz-Jfe" firstAttribute="width" secondItem="SLQ-cj-9MI" secondAttribute="width" id="n7t-6G-zrf"/>
+                            <constraint firstItem="6Yj-tu-Xbi" firstAttribute="bottom" secondItem="K1F-PA-7Dl" secondAttribute="bottom" id="yJZ-3c-NzX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="C3Y-hz-Jfe" id="KZI-Eg-ILN"/>
+                        <outlet property="nameLabel" destination="4z9-Kp-U7P" id="Kd0-FB-cbQ"/>
+                        <outlet property="seasonLabel" destination="QE3-de-D2z" id="eqj-LL-KJ4"/>
+                        <outlet property="summaryLabel" destination="Tfd-sb-sMn" id="Axf-L8-r16"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ade-mq-Hux" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1081" y="110"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

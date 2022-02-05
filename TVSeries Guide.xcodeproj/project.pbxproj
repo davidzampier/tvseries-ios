@@ -30,6 +30,7 @@
 		C5B0626227ACC41100C37615 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0626127ACC41100C37615 /* Helpers.swift */; };
 		C5B0626427ACC65400C37615 /* SeriesDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0626327ACC65400C37615 /* SeriesDetailViewModel.swift */; };
 		C5FEC0F527ADEEB300610620 /* SeriesEpisodeSeasonHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FEC0F427ADEEB300610620 /* SeriesEpisodeSeasonHeaderViewCell.swift */; };
+		C5FEC0F727AE056900610620 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FEC0F627AE056900610620 /* EpisodeDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		C5B0626127ACC41100C37615 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		C5B0626327ACC65400C37615 /* SeriesDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailViewModel.swift; sourceTree = "<group>"; };
 		C5FEC0F427ADEEB300610620 /* SeriesEpisodeSeasonHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesEpisodeSeasonHeaderViewCell.swift; sourceTree = "<group>"; };
+		C5FEC0F627AE056900610620 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				C559A1E727AB2D4000E5B983 /* SeriesViewController.swift */,
 				C5B0625927ACBA3600C37615 /* SeriesDetailViewController.swift */,
 				C5B0626327ACC65400C37615 /* SeriesDetailViewModel.swift */,
+				C5FEC0F627AE056900610620 /* EpisodeDetailViewController.swift */,
 				C559A21F27AB3E0C00E5B983 /* SeriesListViewModel.swift */,
 				C559A22127AB428700E5B983 /* SeriesListViewCell.swift */,
 				C5589BF127ADEAF600B39EEA /* SeriesEpisodeViewCell.swift */,
@@ -330,6 +333,7 @@
 				C559A1E827AB2D4000E5B983 /* SeriesViewController.swift in Sources */,
 				C5FEC0F527ADEEB300610620 /* SeriesEpisodeSeasonHeaderViewCell.swift in Sources */,
 				C559A1E427AB2D4000E5B983 /* AppDelegate.swift in Sources */,
+				C5FEC0F727AE056900610620 /* EpisodeDetailViewController.swift in Sources */,
 				C559A21D27AB3B8400E5B983 /* SeriesResponse.swift in Sources */,
 				C5B0626027ACC09700C37615 /* SeriesDetailHeaderView.swift in Sources */,
 				C559A1E627AB2D4000E5B983 /* SceneDelegate.swift in Sources */,
