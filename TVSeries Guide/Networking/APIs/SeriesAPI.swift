@@ -18,7 +18,7 @@ protocol SeriesAPIProtocol {
 
 struct SeriesAPI {
     
-    private let baseURL = URL(string: "https://api.tvmaze.com")!
+    private let baseURL = Constants.seriesAPIBaseURL
     
     private let networkManager: NetworkManagerProtocol
     

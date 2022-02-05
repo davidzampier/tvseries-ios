@@ -8,6 +8,10 @@
 import UIKit
 import Foundation
 
+struct Constants {
+    static let seriesAPIBaseURL = URL(string: "https://api.tvmaze.com")!
+}
+
 extension UIView {
     class func initFromNib<T: UIView>() -> T {
         return Bundle.main.loadNibNamed(String(describing: self), owner: nil, options: nil)?[0] as! T
