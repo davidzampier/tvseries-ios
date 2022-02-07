@@ -10,6 +10,7 @@ import UIKit
 protocol SeriesListViewModelDelegate: AnyObject {
     func didUpdateResults()
     func setLoading(isLoading: Bool)
+    func openAuthorizationScene()
 }
 
 final class SeriesListViewModel {
@@ -39,13 +40,6 @@ final class SeriesListViewModel {
          authorizationManager: AuthorizationManagerProtocol = AuthorizationManager.shared) {
         self.seriesAPI = seriesAPI
         self.authorizationManager = authorizationManager
-    }
-    
-    
-    // MARK: - Authorization
-    
-    var authorizationStatus: AuthorizationStatus {
-        self.authorizationManager.status
     }
     
     
@@ -88,7 +82,10 @@ final class SeriesListViewModel {
     // MARK: - Fetch Data
     
     func fetchSeries() {
-        guard self.authorizationStatus != .unauthorized else { return }
+        guard self.isAuthorized() else {
+            self.delegate?.openAuthorizationScene()
+            return
+        }
         var page: Int = 0
         if let lastIndex = self.series.last?.id {
             page = (lastIndex/250) + 1
@@ -140,5 +137,11 @@ final class SeriesListViewModel {
                 self?.delegate?.didUpdateResults()
             }
         }
+    }
+    
+    // MARK: - Private Methods
+    
+    func isAuthorized() -> Bool {
+        self.authorizationManager.authorizationType == nil || self.authorizationManager.status == .authorized
     }
 }

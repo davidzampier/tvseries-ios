@@ -20,33 +20,86 @@ class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel.delegate = self
-        self.setUpView()
+        switch self.viewModel.status {
+        case .authorized:
+            self.setUpViewForAuthorizedStatus()
+        case .unauthorized:
+            self.setUpViewForUnauthorizedStatus()
+        }
     }
     
-    private func setUpView() {
-        switch self.viewModel.status {
-        case .notSet:
-            self.titleLabel.text = "Define a PIN code"
-            self.confirmButton.setTitle("Confirm", for: .normal)
-        case .unauthorized:
-            self.isModalInPresentation = true
+    private func setUpViewForUnauthorizedStatus() {
+        switch self.viewModel.authorizationType {
+        case .password:
             self.titleLabel.text = "Enter your PIN code"
             self.confirmButton.setTitle("Unlock", for: .normal)
-        case .authorized:
+        case .biometry:
+            self.titleLabel.text = "Authorize with Biometrics"
+            self.pinTextField.isHidden = true
+            self.confirmButton.isHidden = true
+            self.viewModel.didTapUseBiometryButton()
+        case .none:
+            self.titleLabel.text = "Define a PIN code"
+            self.confirmButton.setTitle("Confirm", for: .normal)
+            self.showBiometricsButton()
+        }
+        self.isModalInPresentation = false
+    }
+    
+    private func setUpViewForAuthorizedStatus() {
+        switch self.viewModel.authorizationType {
+        case .password:
+            self.titleLabel.text = "You are using a PIN code"
+            self.confirmButton.setTitle("Remove", for: .normal)
+            self.confirmButton.tintColor = .systemRed
+            self.pinTextField.isHidden = false
+            self.confirmButton.isHidden = false
+        case .biometry:
+            self.titleLabel.text = "You are using \(self.getBiometryName())"
+            self.pinTextField.isHidden = true
+            self.confirmButton.isHidden = false
+            self.confirmButton.tintColor = .systemRed
+            self.confirmButton.setTitle("Disable", for: .normal)
+        case .none:
             break
         }
     }
     
+    private func showBiometricsButton() {
+        guard let type = self.viewModel.availableBiometricType else {
+            self.useFaceIDButton.isHidden = true
+            return
+        }
+        self.useFaceIDButton.isHidden = false
+        switch type {
+        case .touchID:
+            self.useFaceIDButton.setTitle("Use TouchID instead", for: .normal)
+        case .faceID:
+            self.useFaceIDButton.setTitle("Use FaceID instead", for: .normal)
+        }
+    }
+    
+    private func getBiometryName() -> String {
+        switch self.viewModel.availableBiometricType {
+        case .touchID: return "TouchID"
+        case .faceID: return "FaceID"
+        default: return ""
+        }
+    }
+    
     @IBAction func didTapConfirmButton(_ sender: Any) {
+        guard self.viewModel.authorizationType != .biometry else {
+            self.viewModel.didTapDisableBiometryButton()
+            return
+        }
         guard let text = self.pinTextField.text else {
             return
         }
         self.viewModel.didConfirm(pin: text)
-        
     }
     
     @IBAction func didTapUseFaceIDButton(_ sender: Any) {
-        
+        self.viewModel.didTapUseBiometryButton()
     }
 }
 

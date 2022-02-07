@@ -31,10 +31,6 @@ class SeriesViewController: UITableViewController {
         self.navigationItem.searchController = self.searchController
         self.tableView.backgroundView = UIView()
         self.viewModel.delegate = self
-        guard self.viewModel.authorizationStatus != .unauthorized else {
-            self.performSegue(withIdentifier: self.passwordSegue, sender: nil)
-            return
-        }
         self.viewModel.fetchSeries()
     }
     
@@ -145,6 +141,10 @@ extension SeriesViewController: SeriesListViewModelDelegate {
                 self.showNoResultsLabel()
             }
         }
+    }
+    
+    func openAuthorizationScene() {
+        self.performSegue(withIdentifier: self.passwordSegue, sender: nil)
     }
 }
 
