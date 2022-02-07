@@ -24,7 +24,7 @@ class SeriesViewController: UITableViewController {
         return controller
     }()
     
-    private let viewModel = SeriesListViewModel()
+    var viewModel: SeriesListViewModelProtocol = SeriesListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

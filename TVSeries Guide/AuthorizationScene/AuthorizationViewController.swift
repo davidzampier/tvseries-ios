@@ -14,7 +14,7 @@ class AuthorizationViewController: UIViewController {
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var useFaceIDButton: UIButton!
     
-    var viewModel = AuthorizationViewModel()
+    var viewModel: AuthorizationViewModelProtocol = AuthorizationViewModel()
     var completion: ((AuthorizationStatus) -> Void)?
     
     override func viewDidLoad() {

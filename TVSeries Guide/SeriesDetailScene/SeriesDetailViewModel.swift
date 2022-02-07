@@ -8,16 +8,27 @@
 import Foundation
 
 protocol SeriesDetailViewModelProtocol: AnyObject {
+    var series: SeriesModel { get }
+    var delegate: SeriesDetailViewModelDelegate? { get set }
+    func numberOfSections() -> Int
+    func numberOfRowsInSection(_ section: Int) -> Int
+    func seasonFor(section: Int) -> SeasonModel?
+    func episodeFor(indexPath: IndexPath) -> EpisodeModel?
+    func fetchSeasons()
+    func fetchEpisodes(seasons: [SeasonModel])
+}
+
+protocol SeriesDetailViewModelDelegate: AnyObject {
     func didUpdateSeries()
 }
 
 final class SeriesDetailViewModel {
     
-    private(set) var series: SeriesModel
+    var series: SeriesModel
     private let seriesAPI: SeriesAPIProtocol
     private let dispatchGroup: DispatchGroupProtocol
     
-    weak var delegate: SeriesDetailViewModelProtocol?
+    weak var delegate: SeriesDetailViewModelDelegate?
     
     init(series: SeriesModel,
          seriesAPI: SeriesAPIProtocol = SeriesAPI(),
@@ -26,6 +37,12 @@ final class SeriesDetailViewModel {
         self.seriesAPI = seriesAPI
         self.dispatchGroup = dispatchGroup
     }
+}
+
+
+// MARK: - SeriesDetailViewModelProtocol
+
+extension SeriesDetailViewModel: SeriesDetailViewModelProtocol {
     
     func numberOfSections() -> Int {
         (self.series.seasons?.count ?? 0) + 1

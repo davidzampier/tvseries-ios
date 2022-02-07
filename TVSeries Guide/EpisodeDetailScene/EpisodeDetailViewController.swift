@@ -14,7 +14,7 @@ class EpisodeDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     
-    var viewModel: EpisodeDetailViewModel!
+    var viewModel: EpisodeDetailViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()

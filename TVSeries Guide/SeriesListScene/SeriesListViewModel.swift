@@ -7,6 +7,19 @@
 
 import UIKit
 
+protocol SeriesListViewModelProtocol: AnyObject {
+    var delegate: SeriesListViewModelDelegate? { get set }
+    var isLoading: Bool { get }
+    var isSearching: Bool { get }
+    func numberOfItems() -> Int
+    func itemFor(indexPath: IndexPath) -> SeriesModel
+    func didReachEndOfItems()
+    func didSearch(text: String?)
+    func fetchSeries()
+    func fetchPosterFor(series: SeriesModel, completion: @escaping (UIImage?) -> Void)
+    func searchSeries(text: String)
+}
+
 protocol SeriesListViewModelDelegate: AnyObject {
     func didUpdateResults()
     func setLoading(isLoading: Bool)
@@ -21,25 +34,38 @@ final class SeriesListViewModel {
     private var series: [SeriesModel] = []
     private var searchedSeries: [SeriesModel]?
     
-    var isLoading: Bool = false {
-        willSet {
-            guard newValue != isLoading else { return }
-            self.delegate?.setLoading(isLoading: newValue)
-        }
-    }
-    
-    var isSearching: Bool {
-        self.searchedSeries != nil
-    }
-    
     private var didFetchAllItems: Bool = false
     
     weak var delegate: SeriesListViewModelDelegate?
+    
+    var isLoading: Bool = false {
+        willSet {
+            guard newValue != self.isLoading else { return }
+            self.delegate?.setLoading(isLoading: newValue)
+        }
+    }
     
     init(seriesAPI: SeriesAPIProtocol = SeriesAPI(),
          authorizationManager: AuthorizationManagerProtocol = AuthorizationManager.shared) {
         self.seriesAPI = seriesAPI
         self.authorizationManager = authorizationManager
+    }
+    
+    
+    // MARK: - Private Methods
+    
+    private func isAuthorized() -> Bool {
+        self.authorizationManager.authorizationType == nil || self.authorizationManager.status == .authorized
+    }
+}
+
+
+// MARK: - SeriesListViewModelProtocol
+
+extension SeriesListViewModel: SeriesListViewModelProtocol {
+    
+    var isSearching: Bool {
+        self.searchedSeries != nil
     }
     
     
@@ -139,9 +165,4 @@ final class SeriesListViewModel {
         }
     }
     
-    // MARK: - Private Methods
-    
-    func isAuthorized() -> Bool {
-        self.authorizationManager.authorizationType == nil || self.authorizationManager.status == .authorized
-    }
 }

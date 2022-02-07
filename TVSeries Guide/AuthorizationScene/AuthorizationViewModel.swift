@@ -8,6 +8,7 @@
 import Foundation
 
 protocol AuthorizationViewModelProtocol {
+    var delegate: AuthorizationViewModelDelegate? { get set }
     var status: AuthorizationStatus { get }
     var authorizationType: AuthorizationType? { get }
     var availableBiometricType: BiometricType? { get }

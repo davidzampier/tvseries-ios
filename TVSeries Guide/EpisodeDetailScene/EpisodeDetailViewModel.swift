@@ -7,15 +7,26 @@
 
 import UIKit
 
+protocol EpisodeDetailViewModelProtocol {
+    var episode: EpisodeModel { get }
+    func fetchImage(completion: @escaping (UIImage?) -> Void)
+}
+
 final class EpisodeDetailViewModel {
     
-    private(set) var episode: EpisodeModel
+    var episode: EpisodeModel
     private let seriesAPI: SeriesAPIProtocol
     
     init(episode: EpisodeModel, seriesAPI: SeriesAPIProtocol = SeriesAPI()) {
         self.episode = episode
         self.seriesAPI = seriesAPI
     }
+}
+
+
+// MARK: - EpisodeDetailViewModelProtocol
+
+extension EpisodeDetailViewModel: EpisodeDetailViewModelProtocol {
     
     func fetchImage(completion: @escaping (UIImage?) -> Void) {
         if let image = self.episode.image {

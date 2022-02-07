@@ -9,7 +9,7 @@ import UIKit
 
 class SeriesDetailViewController: UITableViewController {
     
-    var viewModel: SeriesDetailViewModel!
+    var viewModel: SeriesDetailViewModelProtocol!
     
     private var headerView: SeriesDetailHeaderView = .initFromNib()
     
@@ -93,9 +93,9 @@ class SeriesDetailViewController: UITableViewController {
 }
 
 
-// MARK: - SeriesDetailViewModelProtocol
+// MARK: - SeriesDetailViewModelDelegate
 
-extension SeriesDetailViewController: SeriesDetailViewModelProtocol {
+extension SeriesDetailViewController: SeriesDetailViewModelDelegate {
     
     func didUpdateSeries() {
         self.tableView.reloadData()
