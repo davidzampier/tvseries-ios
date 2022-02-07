@@ -1,5 +1,5 @@
 //
-//  SeriesViewController.swift
+//  SeriesListViewController.swift
 //  TVSeries Guide
 //
 //  Created by David Zampier on 02/02/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SeriesViewController: UITableViewController {
+class SeriesListViewController: UITableViewController {
 
     private let passwordSegue = "PasswordSceneSegue"
     private let seriesDetailSegue = "SeriesDetailSceneSegue"
@@ -122,7 +122,7 @@ class SeriesViewController: UITableViewController {
 
 // MARK: - SeriesListViewModelDelegate
 
-extension SeriesViewController: SeriesListViewModelDelegate {
+extension SeriesListViewController: SeriesListViewModelDelegate {
     
     func setLoading(isLoading: Bool) {
         if isLoading {
@@ -151,7 +151,7 @@ extension SeriesViewController: SeriesListViewModelDelegate {
 
 // MARK: - UISearchResultsUpdating
 
-extension SeriesViewController: UISearchResultsUpdating {
+extension SeriesListViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         let text = searchController.searchBar.text
