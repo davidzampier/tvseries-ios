@@ -79,7 +79,11 @@ class SeriesViewController: UITableViewController {
             let selected = self.tableView.indexPathForSelectedRow {
             let series = self.viewModel.itemFor(indexPath: selected)
             destination.viewModel = SeriesDetailViewModel(series: series)
-        } else if segue.identifier == self.passwordSegue {
+        } else if segue.identifier == self.passwordSegue,
+                  let destination = segue.destination as? AuthorizationViewController {
+            destination.completion = { [weak self] _ in
+                self?.viewModel.fetchSeries()
+            }
             if let sheet = segue.destination.sheetPresentationController {
                 sheet.detents = [.medium()]
                 sheet.prefersGrabberVisible = true

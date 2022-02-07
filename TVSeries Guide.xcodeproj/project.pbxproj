@@ -28,6 +28,7 @@
 		C559A22427AB57F000E5B983 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559A22327AB57F000E5B983 /* NetworkImageView.swift */; };
 		C591B40E27AEB6B800BC1162 /* EpisodeDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591B40D27AEB6B800BC1162 /* EpisodeDetailViewModelTests.swift */; };
 		C59B58F427AF4A3700DA2765 /* SeriesDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B58F327AF4A3700DA2765 /* SeriesDetailViewModelTests.swift */; };
+		C59F114927B0C023007F7A48 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59F114827B0C023007F7A48 /* AuthorizationViewModel.swift */; };
 		C5A82D5127AFD6C50099C527 /* DispatchGroupMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A82D5027AFD6C50099C527 /* DispatchGroupMock.swift */; };
 		C5B0625A27ACBA3600C37615 /* SeriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0625927ACBA3600C37615 /* SeriesDetailViewController.swift */; };
 		C5B0625E27ACBF9C00C37615 /* SeriesDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5B0625D27ACBF9C00C37615 /* SeriesDetailHeaderView.xib */; };
@@ -36,6 +37,7 @@
 		C5B0626427ACC65400C37615 /* SeriesDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0626327ACC65400C37615 /* SeriesDetailViewModel.swift */; };
 		C5B51B9D27AE06FF001A0BAE /* EpisodeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B51B9C27AE06FF001A0BAE /* EpisodeDetailViewModel.swift */; };
 		C5C3BC0827B0B45F00713ADE /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C3BC0727B0B45F00713ADE /* AuthorizationManager.swift */; };
+		C5C3BC0A27B0BF6900713ADE /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C3BC0927B0BF6900713ADE /* AuthorizationViewController.swift */; };
 		C5FEC0F527ADEEB300610620 /* SeriesEpisodeSeasonHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FEC0F427ADEEB300610620 /* SeriesEpisodeSeasonHeaderViewCell.swift */; };
 		C5FEC0F727AE056900610620 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FEC0F627AE056900610620 /* EpisodeDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +75,7 @@
 		C559A22327AB57F000E5B983 /* NetworkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 		C591B40D27AEB6B800BC1162 /* EpisodeDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewModelTests.swift; sourceTree = "<group>"; };
 		C59B58F327AF4A3700DA2765 /* SeriesDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailViewModelTests.swift; sourceTree = "<group>"; };
+		C59F114827B0C023007F7A48 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
 		C5A82D5027AFD6C50099C527 /* DispatchGroupMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchGroupMock.swift; sourceTree = "<group>"; };
 		C5B0625927ACBA3600C37615 /* SeriesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailViewController.swift; sourceTree = "<group>"; };
 		C5B0625D27ACBF9C00C37615 /* SeriesDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesDetailHeaderView.xib; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 		C5B51BA427AE1540001A0BAE /* SeriesAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesAPIMock.swift; sourceTree = "<group>"; };
 		C5B51BA627AE160C001A0BAE /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
 		C5C3BC0727B0B45F00713ADE /* AuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
+		C5C3BC0927B0BF6900713ADE /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		C5FEC0F427ADEEB300610620 /* SeriesEpisodeSeasonHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesEpisodeSeasonHeaderViewCell.swift; sourceTree = "<group>"; };
 		C5FEC0F627AE056900610620 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,7 +156,7 @@
 				C5B51BA027AE13A1001A0BAE /* EpisodeDetailScene */,
 				C5B51B9F27AE1397001A0BAE /* SeriesDetailScene */,
 				C5B51B9E27AE137B001A0BAE /* SeriesListScene */,
-				C5C3BC0627B0B43F00713ADE /* PINScene */,
+				C5C3BC0627B0B43F00713ADE /* AuthorizationScene */,
 				C559A21827AB392B00E5B983 /* Models */,
 				C559A21327AB37DD00E5B983 /* Networking */,
 				C5B51BA127AE13EC001A0BAE /* Utils */,
@@ -242,11 +246,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C5C3BC0627B0B43F00713ADE /* PINScene */ = {
+		C5C3BC0627B0B43F00713ADE /* AuthorizationScene */ = {
 			isa = PBXGroup;
 			children = (
+				C5C3BC0927B0BF6900713ADE /* AuthorizationViewController.swift */,
+				C59F114827B0C023007F7A48 /* AuthorizationViewModel.swift */,
 			);
-			path = PINScene;
+			path = AuthorizationScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C3BC0A27B0BF6900713ADE /* AuthorizationViewController.swift in Sources */,
 				C559A21527AB382100E5B983 /* NetworkManager.swift in Sources */,
 				C559A22427AB57F000E5B983 /* NetworkImageView.swift in Sources */,
 				C559A1E827AB2D4000E5B983 /* SeriesViewController.swift in Sources */,
@@ -374,6 +381,7 @@
 				C5FEC0F727AE056900610620 /* EpisodeDetailViewController.swift in Sources */,
 				C559A21D27AB3B8400E5B983 /* SeriesResponse.swift in Sources */,
 				C5B0626027ACC09700C37615 /* SeriesDetailHeaderView.swift in Sources */,
+				C59F114927B0C023007F7A48 /* AuthorizationViewModel.swift in Sources */,
 				C559A1E627AB2D4000E5B983 /* SceneDelegate.swift in Sources */,
 				C559A21A27AB3A4000E5B983 /* SeriesModel.swift in Sources */,
 				C5589BF227ADEAF600B39EEA /* SeriesEpisodeViewCell.swift in Sources */,

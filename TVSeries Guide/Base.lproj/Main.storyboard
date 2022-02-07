@@ -143,10 +143,10 @@
             </objects>
             <point key="canvasLocation" x="-593" y="110"/>
         </scene>
-        <!--View Controller-->
+        <!--Authorization View Controller-->
         <scene sceneID="PAj-n7-7Qa">
             <objects>
-                <viewController id="Bhy-eR-Gkb" sceneMemberID="viewController">
+                <viewController id="Bhy-eR-Gkb" customClass="AuthorizationViewController" customModule="TVSeries_Guide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cvy-0g-2iH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,7 +154,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PIN" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Byv-ny-XAd">
                                 <rect key="frame" x="103.5" y="81" width="207" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set PIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gag-Ew-gUO">
                                 <rect key="frame" x="177.5" y="30" width="59" height="21"/>
@@ -166,11 +166,17 @@
                                 <rect key="frame" x="169" y="135" width="76" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Confirm"/>
+                                <connections>
+                                    <action selector="didTapConfirmButton:" destination="Bhy-eR-Gkb" eventType="touchUpInside" id="mBb-Ek-6cC"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unB-k4-fHN">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unB-k4-fHN">
                                 <rect key="frame" x="132.5" y="191" width="149" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Use FaceID Instead"/>
+                                <connections>
+                                    <action selector="didTapUseFaceIDButton:" destination="Bhy-eR-Gkb" eventType="touchUpInside" id="3iS-bw-Y4n"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7rq-gc-wht"/>
@@ -187,10 +193,16 @@
                             <constraint firstItem="zZU-2U-aC5" firstAttribute="top" secondItem="Byv-ny-XAd" secondAttribute="bottom" constant="20" id="mzH-JX-yRL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="zZU-2U-aC5" id="QUz-Uc-eKC"/>
+                        <outlet property="pinTextField" destination="Byv-ny-XAd" id="xPr-Fw-2Ic"/>
+                        <outlet property="titleLabel" destination="gag-Ew-gUO" id="tpl-YY-Kli"/>
+                        <outlet property="useFaceIDButton" destination="unB-k4-fHN" id="lvY-Py-kT3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V67-bG-9Ya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594" y="823"/>
+            <point key="canvasLocation" x="-594.20289855072474" y="822.99107142857144"/>
         </scene>
         <!--Series Detail-->
         <scene sceneID="yI2-bb-gCU">
