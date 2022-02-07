@@ -20,6 +20,10 @@ class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel.delegate = self
+        self.setUpView()
+    }
+    
+    private func setUpView() {
         switch self.viewModel.status {
         case .authorized:
             self.setUpViewForAuthorizedStatus()
@@ -114,5 +118,9 @@ extension AuthorizationViewController: AuthorizationViewModelDelegate {
             completion?(.authorized)
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    func didDisableAuthorization() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

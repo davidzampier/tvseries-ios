@@ -104,10 +104,12 @@ final class AuthorizationManager: AuthorizationManagerProtocol {
         }
         try? self.deleteItem(for: .password)
         try? self.deleteItem(for: .authType)
+        self.status = .unauthorized
     }
     
     func disableBiometrics() {
         try? self.deleteItem(for: .authType)
+        self.status = .unauthorized
     }
     
     

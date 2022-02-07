@@ -18,6 +18,7 @@ protocol AuthorizationViewModelProtocol {
 
 protocol AuthorizationViewModelDelegate: AnyObject {
     func didChangeStatus(_ status: AuthorizationStatus)
+    func didDisableAuthorization()
 }
 
 final class AuthorizationViewModel {
@@ -72,6 +73,7 @@ extension AuthorizationViewModel: AuthorizationViewModelProtocol {
                 self.authorize(pin)
             case .authorized:
                 self.authorizationManager.disablePassword(pin)
+                self.delegate?.didDisableAuthorization()
             }
         case .biometry:
             break
@@ -91,6 +93,6 @@ extension AuthorizationViewModel: AuthorizationViewModelProtocol {
     
     func didTapDisableBiometryButton() {
         self.authorizationManager.disableBiometrics()
-        self.delegate?.didChangeStatus(.authorized)
+        self.delegate?.didDisableAuthorization()
     }
 }
