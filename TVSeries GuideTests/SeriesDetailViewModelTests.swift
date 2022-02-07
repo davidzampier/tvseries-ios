@@ -13,10 +13,6 @@ class SeriesDetailViewModelTests: XCTestCase {
     private lazy var delegateMock = SeriesDetailViewModelDelegateMock()
     private lazy var seriesAPI = SeriesAPIMock()
     private lazy var dispatchGroup = DispatchGroupMock()
-
-    override func setUp() {
-        
-    }
     
     func testNoSeasons() throws {
         let series = self.makeSeries(id: 1, seasons: nil)
