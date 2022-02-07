@@ -37,17 +37,20 @@ class AuthorizationViewController: UIViewController {
         case .password:
             self.titleLabel.text = "Enter your PIN code"
             self.confirmButton.setTitle("Unlock", for: .normal)
+            self.isModalInPresentation = true
         case .biometry:
             self.titleLabel.text = "Authorize with Biometrics"
             self.pinTextField.isHidden = true
             self.confirmButton.isHidden = true
+            self.useFaceIDButton.isHidden = false
+            self.useFaceIDButton.setTitle("Authorize", for: .normal)
             self.viewModel.didTapUseBiometryButton()
+            self.isModalInPresentation = true
         case .none:
             self.titleLabel.text = "Define a PIN code"
             self.confirmButton.setTitle("Confirm", for: .normal)
             self.showBiometricsButton()
         }
-        self.isModalInPresentation = false
     }
     
     private func setUpViewForAuthorizedStatus() {
@@ -118,6 +121,12 @@ extension AuthorizationViewController: AuthorizationViewModelDelegate {
             completion?(.authorized)
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    func didEnterWrongPassword() {
+        let alert = UIAlertController(title: "Ops!", message: "Invalid PIN 🙁\n", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func didDisableAuthorization() {

@@ -18,6 +18,7 @@ protocol AuthorizationViewModelProtocol {
 
 protocol AuthorizationViewModelDelegate: AnyObject {
     func didChangeStatus(_ status: AuthorizationStatus)
+    func didEnterWrongPassword()
     func didDisableAuthorization()
 }
 
@@ -41,6 +42,8 @@ final class AuthorizationViewModel {
     private func authorize(_ pin: String) {
         if self.authorizationManager.validatePassword(pin) {
             self.delegate?.didChangeStatus(.authorized)
+        } else {
+            self.delegate?.didEnterWrongPassword()
         }
     }
 }
@@ -72,8 +75,11 @@ extension AuthorizationViewModel: AuthorizationViewModelProtocol {
             case .unauthorized:
                 self.authorize(pin)
             case .authorized:
-                self.authorizationManager.disablePassword(pin)
-                self.delegate?.didDisableAuthorization()
+                if self.authorizationManager.disablePassword(pin) {
+                    self.delegate?.didDisableAuthorization()
+                } else {
+                    self.delegate?.didEnterWrongPassword()
+                }
             }
         case .biometry:
             break

@@ -17,7 +17,7 @@ protocol AuthorizationManagerProtocol {
     func getPassword() throws -> String
     func validatePassword(_ password: String) -> Bool
     func authenticateWithBiometrics(completion: @escaping (Bool) -> Void)
-    func disablePassword(_ password: String)
+    func disablePassword(_ password: String) -> Bool
     func disableBiometrics()
 }
 
@@ -98,13 +98,14 @@ final class AuthorizationManager: AuthorizationManagerProtocol {
         }
     }
     
-    func disablePassword(_ password: String) {
+    func disablePassword(_ password: String) -> Bool {
         guard self.validatePassword(password) else {
-            return
+            return false
         }
         try? self.deleteItem(for: .password)
         try? self.deleteItem(for: .authType)
         self.status = .unauthorized
+        return true
     }
     
     func disableBiometrics() {
