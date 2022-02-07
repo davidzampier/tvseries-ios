@@ -68,7 +68,6 @@ class EpisodeDetailViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
             
-            
     private func makeEpisode(imageURL: URL?, image: UIImage?) -> EpisodeModel {
         EpisodeModel(id: 1,
                      number: 1,

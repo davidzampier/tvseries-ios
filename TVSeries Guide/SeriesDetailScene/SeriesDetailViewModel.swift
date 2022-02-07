@@ -15,12 +15,16 @@ final class SeriesDetailViewModel {
     
     private(set) var series: SeriesModel
     private let seriesAPI: SeriesAPIProtocol
+    private let dispatchGroup: DispatchGroupProtocol
     
     weak var delegate: SeriesDetailViewModelProtocol?
     
-    init(series: SeriesModel, seriesAPI: SeriesAPIProtocol = SeriesAPI()) {
+    init(series: SeriesModel,
+         seriesAPI: SeriesAPIProtocol = SeriesAPI(),
+         dispatchGroup: DispatchGroupProtocol = DispatchGroup()) {
         self.series = series
         self.seriesAPI = seriesAPI
+        self.dispatchGroup = dispatchGroup
     }
     
     func numberOfSections() -> Int {
@@ -52,16 +56,15 @@ final class SeriesDetailViewModel {
     }
     
     func fetchEpisodes(seasons: [SeasonModel]) {
-        let dispatchGroup = DispatchGroup()
         for season in seasons {
-            dispatchGroup.enter()
+            self.dispatchGroup.enter()
             self.seriesAPI.fetchEpisodes(seasonID: season.id) { (result: Result<[SeriesEpisodeResponse], NetworkError>) in
                 guard let response = try? result.get() else { return }
                 season.episodes = response.map({ EpisodeModel(response: $0) })
-                dispatchGroup.leave()
+                self.dispatchGroup.leave()
             }
         }
-        dispatchGroup.notify(queue: .main) {
+        self.dispatchGroup.notify(queue: .main) {
             self.series.seasons = seasons
             self.delegate?.didUpdateSeries()
         }

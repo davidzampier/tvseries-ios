@@ -27,6 +27,8 @@
 		C559A22227AB428700E5B983 /* SeriesListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559A22127AB428700E5B983 /* SeriesListViewCell.swift */; };
 		C559A22427AB57F000E5B983 /* NetworkImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559A22327AB57F000E5B983 /* NetworkImageView.swift */; };
 		C591B40E27AEB6B800BC1162 /* EpisodeDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C591B40D27AEB6B800BC1162 /* EpisodeDetailViewModelTests.swift */; };
+		C59B58F427AF4A3700DA2765 /* SeriesDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59B58F327AF4A3700DA2765 /* SeriesDetailViewModelTests.swift */; };
+		C5A82D5127AFD6C50099C527 /* DispatchGroupMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A82D5027AFD6C50099C527 /* DispatchGroupMock.swift */; };
 		C5B0625A27ACBA3600C37615 /* SeriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0625927ACBA3600C37615 /* SeriesDetailViewController.swift */; };
 		C5B0625E27ACBF9C00C37615 /* SeriesDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5B0625D27ACBF9C00C37615 /* SeriesDetailHeaderView.xib */; };
 		C5B0626027ACC09700C37615 /* SeriesDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0625F27ACC09700C37615 /* SeriesDetailHeaderView.swift */; };
@@ -69,6 +71,8 @@
 		C559A22127AB428700E5B983 /* SeriesListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListViewCell.swift; sourceTree = "<group>"; };
 		C559A22327AB57F000E5B983 /* NetworkImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageView.swift; sourceTree = "<group>"; };
 		C591B40D27AEB6B800BC1162 /* EpisodeDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewModelTests.swift; sourceTree = "<group>"; };
+		C59B58F327AF4A3700DA2765 /* SeriesDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailViewModelTests.swift; sourceTree = "<group>"; };
+		C5A82D5027AFD6C50099C527 /* DispatchGroupMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchGroupMock.swift; sourceTree = "<group>"; };
 		C5B0625927ACBA3600C37615 /* SeriesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailViewController.swift; sourceTree = "<group>"; };
 		C5B0625D27ACBF9C00C37615 /* SeriesDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesDetailHeaderView.xib; sourceTree = "<group>"; };
 		C5B0625F27ACC09700C37615 /* SeriesDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailHeaderView.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				C559A1FA27AB2D4200E5B983 /* NetworkManagerTests.swift */,
 				C510A58D27AE1F1F00433AD9 /* SeriesAPITests.swift */,
 				C591B40D27AEB6B800BC1162 /* EpisodeDetailViewModelTests.swift */,
+				C59B58F327AF4A3700DA2765 /* SeriesDetailViewModelTests.swift */,
 			);
 			path = "TVSeries GuideTests";
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 				C5B51BA427AE1540001A0BAE /* SeriesAPIMock.swift */,
 				C5B51BA627AE160C001A0BAE /* URLProtocolMock.swift */,
 				C510A58927AE1E2D00433AD9 /* NetworkManagerMock.swift */,
+				C5A82D5027AFD6C50099C527 /* DispatchGroupMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -334,10 +340,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5A82D5127AFD6C50099C527 /* DispatchGroupMock.swift in Sources */,
 				C510A58E27AE1F1F00433AD9 /* SeriesAPITests.swift in Sources */,
 				C510A58F27AE202600433AD9 /* SeriesAPIMock.swift in Sources */,
 				C510A58A27AE1E2D00433AD9 /* NetworkManagerMock.swift in Sources */,
 				C510A58627AE19C900433AD9 /* NetworkManagerTests.swift in Sources */,
+				C59B58F427AF4A3700DA2765 /* SeriesDetailViewModelTests.swift in Sources */,
 				C591B40E27AEB6B800BC1162 /* EpisodeDetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,3 +33,18 @@ extension UILabel {
         self.text = attributedString.string
     }
 }
+
+protocol DispatchGroupProtocol {
+    func enter()
+    func leave()
+    func notify(queue: DispatchQueue, execute work: @escaping () -> Void)
+}
+
+extension DispatchGroup: DispatchGroupProtocol {
+    func notify(queue: DispatchQueue, execute work: @escaping () -> Void) {
+        self.notify(qos: .unspecified,
+                    flags: [],
+                    queue: queue,
+                    execute: work)
+    }
+}
