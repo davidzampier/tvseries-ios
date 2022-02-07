@@ -35,6 +35,7 @@
 		C5B0626227ACC41100C37615 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0626127ACC41100C37615 /* Helpers.swift */; };
 		C5B0626427ACC65400C37615 /* SeriesDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0626327ACC65400C37615 /* SeriesDetailViewModel.swift */; };
 		C5B51B9D27AE06FF001A0BAE /* EpisodeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B51B9C27AE06FF001A0BAE /* EpisodeDetailViewModel.swift */; };
+		C5C3BC0827B0B45F00713ADE /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C3BC0727B0B45F00713ADE /* AuthorizationManager.swift */; };
 		C5FEC0F527ADEEB300610620 /* SeriesEpisodeSeasonHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FEC0F427ADEEB300610620 /* SeriesEpisodeSeasonHeaderViewCell.swift */; };
 		C5FEC0F727AE056900610620 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FEC0F627AE056900610620 /* EpisodeDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		C5B51B9C27AE06FF001A0BAE /* EpisodeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewModel.swift; sourceTree = "<group>"; };
 		C5B51BA427AE1540001A0BAE /* SeriesAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesAPIMock.swift; sourceTree = "<group>"; };
 		C5B51BA627AE160C001A0BAE /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		C5C3BC0727B0B45F00713ADE /* AuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
 		C5FEC0F427ADEEB300610620 /* SeriesEpisodeSeasonHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesEpisodeSeasonHeaderViewCell.swift; sourceTree = "<group>"; };
 		C5FEC0F627AE056900610620 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 				C5B51BA027AE13A1001A0BAE /* EpisodeDetailScene */,
 				C5B51B9F27AE1397001A0BAE /* SeriesDetailScene */,
 				C5B51B9E27AE137B001A0BAE /* SeriesListScene */,
+				C5C3BC0627B0B43F00713ADE /* PINScene */,
 				C559A21827AB392B00E5B983 /* Models */,
 				C559A21327AB37DD00E5B983 /* Networking */,
 				C5B51BA127AE13EC001A0BAE /* Utils */,
@@ -223,6 +226,7 @@
 			children = (
 				C5B0626127ACC41100C37615 /* Helpers.swift */,
 				C559A22327AB57F000E5B983 /* NetworkImageView.swift */,
+				C5C3BC0727B0B45F00713ADE /* AuthorizationManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -236,6 +240,13 @@
 				C559A1EE27AB2D4200E5B983 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C5C3BC0627B0B43F00713ADE /* PINScene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PINScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +382,7 @@
 				C510A57627AE197300433AD9 /* URLProtocolMock.swift in Sources */,
 				C5B0626227ACC41100C37615 /* Helpers.swift in Sources */,
 				C559A22227AB428700E5B983 /* SeriesListViewCell.swift in Sources */,
+				C5C3BC0827B0B45F00713ADE /* AuthorizationManager.swift in Sources */,
 				C5B0626427ACC65400C37615 /* SeriesDetailViewModel.swift in Sources */,
 				C5B0625A27ACBA3600C37615 /* SeriesDetailViewController.swift in Sources */,
 			);

@@ -90,7 +90,7 @@
                                     <outlet property="genresLabel" destination="6Bx-nJ-ylC" id="eyP-dg-4AZ"/>
                                     <outlet property="nameLabel" destination="eiO-C7-x4F" id="7L0-IZ-O5z"/>
                                     <outlet property="posterImageView" destination="efO-IH-2YF" id="5uO-aY-dgd"/>
-                                    <segue destination="sig-2t-YbS" kind="show" id="ijL-OI-Bpm"/>
+                                    <segue destination="sig-2t-YbS" kind="show" identifier="SeriesDetailSceneSegue" id="ijL-OI-Bpm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -99,7 +99,13 @@
                             <outlet property="delegate" destination="bV0-bs-UMl" id="tQb-2t-azg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Series" id="b3t-b8-Fc6"/>
+                    <navigationItem key="navigationItem" title="Series" id="b3t-b8-Fc6">
+                        <barButtonItem key="rightBarButtonItem" title="Password " id="nAN-wK-N94">
+                            <connections>
+                                <segue destination="Bhy-eR-Gkb" kind="presentation" identifier="PasswordSceneSegue" id="H4N-x5-MLJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="ffP-8V-iQQ" id="vdT-ij-Ytx"/>
                         <outlet property="backgroundLabel" destination="78F-03-C0j" id="5CF-1a-3Fi"/>
@@ -136,6 +142,55 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="-593" y="110"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PAj-n7-7Qa">
+            <objects>
+                <viewController id="Bhy-eR-Gkb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cvy-0g-2iH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PIN" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Byv-ny-XAd">
+                                <rect key="frame" x="103.5" y="81" width="207" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="password"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set PIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gag-Ew-gUO">
+                                <rect key="frame" x="177.5" y="30" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZU-2U-aC5">
+                                <rect key="frame" x="169" y="135" width="76" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Confirm"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unB-k4-fHN">
+                                <rect key="frame" x="132.5" y="191" width="149" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Use FaceID Instead"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7rq-gc-wht"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="unB-k4-fHN" firstAttribute="top" secondItem="zZU-2U-aC5" secondAttribute="bottom" constant="25" id="GRJ-4f-Ead"/>
+                            <constraint firstItem="unB-k4-fHN" firstAttribute="centerX" secondItem="cvy-0g-2iH" secondAttribute="centerX" id="Tki-Bg-krg"/>
+                            <constraint firstItem="Byv-ny-XAd" firstAttribute="centerX" secondItem="cvy-0g-2iH" secondAttribute="centerX" id="X7M-e5-KDT"/>
+                            <constraint firstItem="gag-Ew-gUO" firstAttribute="top" secondItem="7rq-gc-wht" secondAttribute="top" constant="30" id="XD8-Pl-8W0"/>
+                            <constraint firstItem="Byv-ny-XAd" firstAttribute="width" secondItem="cvy-0g-2iH" secondAttribute="width" multiplier="0.5" id="ZBa-se-18w"/>
+                            <constraint firstItem="Byv-ny-XAd" firstAttribute="top" secondItem="gag-Ew-gUO" secondAttribute="bottom" constant="30" id="bqC-Lb-Min"/>
+                            <constraint firstItem="zZU-2U-aC5" firstAttribute="centerX" secondItem="cvy-0g-2iH" secondAttribute="centerX" id="g63-uN-kcv"/>
+                            <constraint firstItem="gag-Ew-gUO" firstAttribute="centerX" secondItem="cvy-0g-2iH" secondAttribute="centerX" id="jwd-49-kNy"/>
+                            <constraint firstItem="zZU-2U-aC5" firstAttribute="top" secondItem="Byv-ny-XAd" secondAttribute="bottom" constant="20" id="mzH-JX-yRL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V67-bG-9Ya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-594" y="823"/>
         </scene>
         <!--Series Detail-->
         <scene sceneID="yI2-bb-gCU">

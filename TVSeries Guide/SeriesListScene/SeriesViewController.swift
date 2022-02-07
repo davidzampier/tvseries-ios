@@ -9,6 +9,9 @@ import UIKit
 
 class SeriesViewController: UITableViewController {
 
+    private let passwordSegue = "PasswordSceneSegue"
+    private let seriesDetailSegue = "SeriesDetailSceneSegue"
+    
     @IBOutlet var backgroundView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var backgroundLabel: UILabel!
@@ -28,6 +31,10 @@ class SeriesViewController: UITableViewController {
         self.navigationItem.searchController = self.searchController
         self.tableView.backgroundView = UIView()
         self.viewModel.delegate = self
+        guard self.viewModel.authorizationStatus != .unauthorized else {
+            self.performSegue(withIdentifier: self.passwordSegue, sender: nil)
+            return
+        }
         self.viewModel.fetchSeries()
     }
     
@@ -67,9 +74,16 @@ class SeriesViewController: UITableViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? SeriesDetailViewController, let selected = self.tableView.indexPathForSelectedRow {
+        if segue.identifier == self.seriesDetailSegue,
+            let destination = segue.destination as? SeriesDetailViewController,
+            let selected = self.tableView.indexPathForSelectedRow {
             let series = self.viewModel.itemFor(indexPath: selected)
             destination.viewModel = SeriesDetailViewModel(series: series)
+        } else if segue.identifier == self.passwordSegue {
+            if let sheet = segue.destination.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.prefersGrabberVisible = true
+            }
         }
     }
     

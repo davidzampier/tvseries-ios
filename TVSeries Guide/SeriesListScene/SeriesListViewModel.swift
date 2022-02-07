@@ -15,6 +15,7 @@ protocol SeriesListViewModelDelegate: AnyObject {
 final class SeriesListViewModel {
     
     private let seriesAPI: SeriesAPIProtocol
+    private let authorizationManager: AuthorizationManagerProtocol
     
     private var series: [SeriesModel] = []
     private var searchedSeries: [SeriesModel]?
@@ -34,8 +35,17 @@ final class SeriesListViewModel {
     
     weak var delegate: SeriesListViewModelDelegate?
     
-    init(seriesAPI: SeriesAPIProtocol = SeriesAPI()) {
+    init(seriesAPI: SeriesAPIProtocol = SeriesAPI(),
+         authorizationManager: AuthorizationManagerProtocol = AuthorizationManager.shared) {
         self.seriesAPI = seriesAPI
+        self.authorizationManager = authorizationManager
+    }
+    
+    
+    // MARK: - Authorization
+    
+    var authorizationStatus: AuthorizationStatus {
+        self.authorizationManager.status
     }
     
     
@@ -78,6 +88,7 @@ final class SeriesListViewModel {
     // MARK: - Fetch Data
     
     func fetchSeries() {
+        guard self.authorizationStatus != .unauthorized else { return }
         var page: Int = 0
         if let lastIndex = self.series.last?.id {
             page = (lastIndex/250) + 1
